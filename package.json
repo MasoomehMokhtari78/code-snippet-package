@@ -1,6 +1,6 @@
 {
   "name": "react-snippet-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A React code snippet UI component library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
