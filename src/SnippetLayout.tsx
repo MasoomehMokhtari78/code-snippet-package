@@ -30,27 +30,33 @@ export const SnippetLayout = ({
 }: LayoutType) => {
   const { finalTheme } = useTheme(theme, glassEffect);
 
-  const baseBackground = transparentBackground
-    ? {
-        backgroundImage: `
-        linear-gradient(45deg, rgba(0,0,0,0.05) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(0,0,0,0.05) 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.05) 75%),
-        linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.05) 75%)
-      `,
-        backgroundSize: "20px 20px",
-        backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px",
-      }
-    : { background: finalTheme?.background };
+  //giving priority to background image
+  const backgroundStyles: React.CSSProperties = {
+    // theme background
+    ...(!transparentBackground && !backgroundImage
+      ? { background: finalTheme?.background as string }
+      : {}),
 
-  const imageBackground = backgroundImage
-    ? {
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-      }
-    : {};
+    // checkerboard pattern
+    ...(transparentBackground && !backgroundImage
+      ? {
+          background: `
+          linear-gradient(45deg, rgba(0,0,0,0.05) 25%, transparent 25%),
+          linear-gradient(-45deg, rgba(0,0,0,0.05) 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.05) 75%),
+          linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.05) 75%)
+        `,
+          backgroundSize: "20px 20px",
+          backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px",
+        }
+      : {}),
+
+    ...(backgroundImage
+      ? {
+          background: `url(${backgroundImage}) center/cover no-repeat`,
+        }
+      : {}),
+  };
 
   const { editorRef } = useSnippetContext();
   return (
@@ -67,8 +73,7 @@ export const SnippetLayout = ({
         height,
         fontSize: fontSize,
         fontFamily,
-        ...baseBackground,
-        ...imageBackground,
+        ...backgroundStyles,
       }}
     >
       <div
