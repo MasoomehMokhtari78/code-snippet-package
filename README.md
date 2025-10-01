@@ -154,5 +154,6 @@ const [value, setValue] = useState("");
 ## Links 🔗
 
 - **NPM:** [react-snippet-ui](https://www.npmjs.com/package/react-snippet-ui)
+- **Source Code:** [Github](https://github.com/MasoomehMokhtari78/code-snippet-package)
 - **Demo:** [Code Snippet Demo](https://code-snippet-eta.vercel.app/)
 - **Guide:** [How to use snippet features](https://github.com/MasoomehMokhtari78/code-snippet)
