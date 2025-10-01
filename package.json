@@ -1,7 +1,8 @@
 {
   "name": "react-snippet-ui",
   "version": "1.0.3",
-  "description": "A React code snippet UI component library",
+  "description": "A React component to display code snippets with themes, background, and export features",
+  "homepage": "https://github.com/MasoomehMokhtari78/code-snippet-package",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
