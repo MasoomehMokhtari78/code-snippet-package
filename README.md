@@ -1,6 +1,7 @@
 # Snippet Layout
 
 This component provides a layout wrapper for displaying code snippets with optional themes, glass effect, background images, and export options.
+- **NPM:** [react-snippet-ui](https://www.npmjs.com/package/react-snippet-ui)
 
 ## ⚠️ Next.js Note
 
